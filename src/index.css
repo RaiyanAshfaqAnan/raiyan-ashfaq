@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "DM Serif Display", serif;
+
+  --color-charcoal: #2C2C2A;
+  --color-cream: #FFFDF7;
+  --color-violet: #534AB7;
+  --color-teal: #1D9E75;
+  --color-saffron: #EF9F27;
+  --color-bkash: #E2136E;
+  --color-nagad: #F26522;
+  --color-danger: #e74c3c;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+
+  --transition-bezier: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+  }
+  h1, h2, h3, .font-serif {
+    @apply font-serif font-normal;
+  }
+}
+
+.kite-shape {
+  @apply absolute w-[100px] h-[100px] bg-violet/15 z-1;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(15deg); }
+  50% { transform: translate(50px, -100px) rotate(-15deg); }
+}
+
+.masonry {
+  columns: 1;
+  column-gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .masonry { columns: 2; }
+}
+
+@media (min-width: 1024px) {
+  .masonry { columns: 3; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+
